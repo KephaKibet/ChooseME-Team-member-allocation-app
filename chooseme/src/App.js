@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import Content from './content';
+import Employees from './employees';
 import Footer from './footer';
 
 import './App.css';
@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Content />
+      <Employees />
       <Footer/>
       
     </div>

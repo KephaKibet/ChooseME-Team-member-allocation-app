@@ -1,15 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
+import femaleProfile from './images/femaleProfile.jpg';
+import maleProfile from './images/maleProfile.jpg'
 
-const Employees = () => {
+const Employees = () =>
+{
 
   const [employees, setEmployees] = useState([
     {
-    id: 1,
-    fullName: 'Kepha Kibet',
-    designation: 'trainee',
-    gender: 'male',
-    teamName: 'Dynamics'
+      id: 1,
+      fullName: 'Kepha Kibet',
+      designation: 'trainee',
+      gender: 'male',
+      teamName: 'Dynamics'
     },
     {
       id: 1,
@@ -92,11 +95,26 @@ const Employees = () => {
   ])
   
   return (
-    <main>
-
+    <main className='container'>
+      <div class='row '>
+        <div class='col-8'>
+      {
+            employees.map((employee) => (
+              <div id ={employee.id} className='card'>
+                <img src={femaleProfile} className='card-img-top' alt='employeePicture'/>
+                <div className='card-body' >
+                  <h5 className='card-tittle'>Full Name : {employee.fullName}</h5>
+                  <p className='card-text'><b> Designation </b>  : {employee.designation }</p>
+                </div>
+              </div>  
+        ))
+      }
+          </div>
+        </div>
     </main>
-    )
+  )
 }
+      
 
 
 export default Employees;
