@@ -1,8 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import Header from './header';
+import Content from './content';
+import Footer from './footer';
+
 import './App.css';
 
+
 function App() {
-  return ();
+  return (
+    <div>
+      <Header />
+      <Content />
+      <Footer/>
+      
+    </div>
+
+  );
 }
 
 export default App;
