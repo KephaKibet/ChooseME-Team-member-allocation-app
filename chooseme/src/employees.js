@@ -99,7 +99,7 @@ const Employees = () =>
     <main className='container'>
      <div class='row justify-content-center mt-3 mb-3'>
         <div class='col-6'>
-          <select className = "form-select form-select-lg" value ={selectedTeam}>
+          <select className = "form-select form-select-lg" value ={selectedTeam} onChange = {handleTeamSelectionOnChange}>
             <option value ='Dynamics'>Dynamics</option>
             <option value ='Phoenix'>Phoenix</option>
             <option value ='Primes'>Primes</option>
@@ -112,7 +112,7 @@ const Employees = () =>
           <div class='card-collection'>
       {
             employees.map((employee) => (
-              <div id ={employee.id} className='card' m-2 style={{cursor:"pointer"}}>
+              <div id ={employee.id} className='card m-2' style={{cursor:"pointer"}}>
                 {
                   (employee.gender === 'male') ? <img src={maleProfile} className='card-img-top' alt='employeePicture' />
                   : <img src={femaleProfile} className='card-img-top' alt='employeePicture' />
