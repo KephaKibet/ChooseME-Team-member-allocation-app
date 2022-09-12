@@ -5,6 +5,7 @@ import maleProfile from './images/maleProfile.jpg'
 
 const Employees = () =>
 {
+  const [selectedTeam, setTeam] = useState("Phoenix")
 
   const [employees, setEmployees] = useState([
     {
@@ -96,19 +97,36 @@ const Employees = () =>
   
   return (
     <main className='container'>
-      <div class='row '>
+     <div class='row justify-content-center mt-3 mb-3'>
+        <div class='col-6'>
+          <select className = "form-select form-select-lg" value ={selectedTeam}>
+            <option value ='Dynamics'>Dynamics</option>
+            <option value ='Phoenix'>Phoenix</option>
+            <option value ='Primes'>Primes</option>
+            <option value ='Royals'>Royals</option>
+          </select>
+        </div>
+      </div>
+      <div class='row justify-content-center mt-3 mb-3 '>
         <div class='col-8'>
+          <div class='card-collection'>
       {
             employees.map((employee) => (
-              <div id ={employee.id} className='card'>
-                <img src={femaleProfile} className='card-img-top' alt='employeePicture'/>
+              <div id ={employee.id} className='card' m-2 style={{cursor:"pointer"}}>
+                {
+                  (employee.gender === 'male') ? <img src={maleProfile} className='card-img-top' alt='employeePicture' />
+                  : <img src={femaleProfile} className='card-img-top' alt='employeePicture' />
+                }
                 <div className='card-body' >
                   <h5 className='card-tittle'>Full Name : {employee.fullName}</h5>
-                  <p className='card-text'><b> Designation </b>  : {employee.designation }</p>
+                  <p className='card-text'><b> Designation </b> : {employee.designation }</p>  
                 </div>
               </div>  
+              
         ))
-      }
+            }
+            
+            </div>
           </div>
         </div>
     </main>
