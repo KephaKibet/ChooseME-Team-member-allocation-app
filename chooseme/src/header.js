@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({selectedTeam, teamMemberCount}) => {
   
   return (
     <header>
-      <h1 className=''>
-        Header
+      <h1>
+       ChooseMe Team Member Sllocation
       </h1>
-  
+  <h3>{selectedTeam} has {teamMemberCount} members</h3>
   
     </header>
     )
