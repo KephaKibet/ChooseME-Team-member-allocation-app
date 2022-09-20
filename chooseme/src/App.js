@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Header from './header';
 import Employees from './employees';
 import Footer from './footer';
@@ -11,9 +12,9 @@ function App()
 {
 
   
-  const [selectedTeam, setTeam] = useState("Phoenix")
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "Phoenix");
 
-  const [employees, setEmployees] = useState([
+  const [employees, setEmployees] = useState( JSON.parse(localStorage.getItem('employeeList'))||[
     {
       id: 1,
       fullName: 'Kepha Kibet',
@@ -100,6 +101,18 @@ function App()
     },
     
   ])
+
+  useEffect(() => {
+    localStorage.setItem('employeeList', JSON.stringify(employees))
+
+  }, [employees]);
+
+  useEffect(() => {
+    localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
+
+  }, [selectedTeam]);
+  
+  
   function handleTeamSelectionChange(event)
   {
     setTeam(event.target.value);
@@ -116,7 +129,8 @@ function App()
 
   return (
     <div>
-      <Header selectedTeam={selectedTeam}
+      <Header
+        selectedTeam={selectedTeam}
         teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length} />
       <Employees employees={employees}
         selectedTeam={selectedTeam}
