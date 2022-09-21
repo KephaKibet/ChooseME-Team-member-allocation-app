@@ -4,13 +4,12 @@ import { useEffect } from 'react';
 import Header from './header';
 import Employees from './employees';
 import Footer from './footer';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 
 function App()
 {
-
   
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "Phoenix");
 
@@ -129,15 +128,25 @@ function App()
 
   return (
     <div>
-      <Header
-        selectedTeam={selectedTeam}
-        teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length} />
-      <Employees employees={employees}
-        selectedTeam={selectedTeam}
-        handleEmployeeCardClick={handleEmployeeCardClick}
-        handleTeamSelectionChange={handleTeamSelectionChange}
-      />
-      <Footer/>
+      <Router>
+
+        <Header
+          selectedTeam={selectedTeam}
+          teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}
+        />
+        <Routes>
+          <Route path='/'
+                  element={ <Employees employees={employees}
+                  selectedTeam={selectedTeam}
+                  handleEmployeeCardClick={handleEmployeeCardClick}
+                  handleTeamSelectionChange={handleTeamSelectionChange}
+                  />}>
+          </Route>
+          <Route path='/groupedTeamMembers' element={< groupedTeamMembers/>}>
+          </Route>
+         </Routes>  
+        <Footer />
+      </Router>
       
     </div>
 
