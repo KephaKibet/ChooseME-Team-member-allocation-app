@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import GroupedTeamMembers from './groupedTeamMembers';
 import Nav from './nav';
+import NotFound from './notFound';
 
 
 function App()
@@ -146,7 +147,9 @@ function App()
                   handleTeamSelectionChange={handleTeamSelectionChange}
                   />}>
           </Route>
-          <Route path='/GroupedTeamMembers' element={< GroupedTeamMembers/>}>
+          <Route path='/GroupedTeamMembers' element={< GroupedTeamMembers />}>
+          </Route>
+          <Route path='*' element={< NotFound/>}>
           </Route>
          </Routes>  
         <Footer />
