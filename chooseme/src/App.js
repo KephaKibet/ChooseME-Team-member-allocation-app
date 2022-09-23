@@ -6,6 +6,8 @@ import Employees from './employees';
 import Footer from './footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import GroupedTeamMembers from './groupedTeamMembers';
+import Nav from './nav';
 
 
 function App()
@@ -13,7 +15,8 @@ function App()
   
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "Phoenix");
 
-  const [employees, setEmployees] = useState( JSON.parse(localStorage.getItem('employeeList'))||[
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) ||
+    [
     {
       id: 1,
       fullName: 'Kepha Kibet',
@@ -129,6 +132,7 @@ function App()
   return (
     <div>
       <Router>
+        <Nav />
 
         <Header
           selectedTeam={selectedTeam}
@@ -142,7 +146,7 @@ function App()
                   handleTeamSelectionChange={handleTeamSelectionChange}
                   />}>
           </Route>
-          <Route path='/groupedTeamMembers' element={< groupedTeamMembers/>}>
+          <Route path='/GroupedTeamMembers' element={< GroupedTeamMembers/>}>
           </Route>
          </Routes>  
         <Footer />
