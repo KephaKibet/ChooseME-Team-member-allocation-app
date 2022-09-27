@@ -23,17 +23,23 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
     var royals = { team: 'Royals', members: royalsMembers, collapsed: selectedTeam === 'Royals' ? false : true };
     teams.push(royals);
 
+    return teams;
+
     function handleTeamClick(event) {
+      var transformedGroupedData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarge.id ? { ...groupedData, collapsed: !groupedData.collapsedData } : groupedData)
       
+      setGroupedData(transformedGroupedData);
+      setTeam(event.currentTarget.id)
     }
   
+    // eslint-disable-next-line no-unreachable
     return (
       <main className="container" >
         {
           groupedEmployees.map((item) => {
             return (
               <div key={item.team} className='card mt-2' style={{ cursor: 'pointer' }}>
-                <h4 id={item.team} className='card-header text-secondary bg-white'> Team Name : {item.team} </h4>
+                <h4 id={item.team} className='card-header text-secondary bg-white' onClick ={handleTeamClick}> Team Name : {item.team} </h4>
                 <div id={'collapse' + item.team}
                   className={item.collapsed === true ? 'collapsed' : ''}>
                   <hr />
