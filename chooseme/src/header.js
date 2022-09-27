@@ -9,7 +9,7 @@ const Header = ({selectedTeam, teamMemberCount}) => {
           <h1>
           ChooseMe Team Member Allocation
           </h1>
-          <h3>{selectedTeam} has {teamMemberCount} members</h3>
+          <h3>{selectedTeam} has {teamMemberCount} {teamMemberCount===1?'member':'members'}</h3>
           </div>
         </div>
     </header>

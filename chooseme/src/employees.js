@@ -1,6 +1,7 @@
 import React from 'react';
 import femaleProfile from './images/femaleProfile.jpg';
 import maleProfile from './images/maleProfile.jpg'
+import Teams from './teams';
 
 const Employees = ({employees,selectedTeam,handleEmployeeCardClick,handleTeamSelectionChange}) =>
 {
@@ -10,12 +11,8 @@ const Employees = ({employees,selectedTeam,handleEmployeeCardClick,handleTeamSel
   <main className='container'>
     <div className='row justify-content-center mt-3 mb-3'>
       <div className='col-6'>
-        <select className='form-select form-select-lg' value={selectedTeam} onChange={handleTeamSelectionChange}>
-          <option value='Dynamics'>Dynamics</option>
-          <option value='Phoenix'>Phoenix</option>
-          <option value='Primes'>Primes</option>
-          <option value='Royals'>Royals</option>
-        </select>
+          <Teams selectedTeam={selectedTeam}
+            handleTeamSelectionChange={handleTeamSelectionChange} />
       </div>
     </div>
     <div className='row justify-content-center mt-3 mb-3 '>
