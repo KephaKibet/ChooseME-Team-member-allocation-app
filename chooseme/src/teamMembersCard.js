@@ -1,6 +1,8 @@
 import React from 'react';
+import femaleProfile from './images/femaleProfile.jpg';
+import maleProfile from './images/maleProfile.jpg'
 
-const TeamMemberCard = ({selectedTeam,handleTeamSelectionChange}) => {
+const TeamMemberCard = ({employee,handleEmployeeCardClick,selectedTeam}) => {
   return (
     
 <div key={employee.id} id={employee.id} className={(employee.teamName === selectedTeam ? 'card m-2 selected' : 'card m-2')} style={{ cursor: 'pointer' }} onClick={handleEmployeeCardClick}>

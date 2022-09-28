@@ -1,7 +1,8 @@
 import React from 'react';
-import femaleProfile from './images/femaleProfile.jpg';
-import maleProfile from './images/maleProfile.jpg'
+
 import Teams from './teams';
+import TeamMembers from './teamMembers';
+import TeamMemberCard from './teamMembersCard';
 
 const Employees = ({employees,selectedTeam,handleEmployeeCardClick,handleTeamSelectionChange}) =>
 {
@@ -18,11 +19,11 @@ const Employees = ({employees,selectedTeam,handleEmployeeCardClick,handleTeamSel
     <div className='row justify-content-center mt-3 mb-3 '>
       <div className='col-8'>
         <div className='card-collection'>
-          {
-            employees.map((employee) => (
-              
-            ))
-          }
+               <TeamMembers
+                employees = {employees}
+                handleEmployeeCardClick = {handleEmployeeCardClick }
+                selectedTeam={selectedTeam}
+              />
             
         </div>
       </div>
